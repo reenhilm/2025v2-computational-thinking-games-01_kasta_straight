@@ -1,17 +1,22 @@
-function spela_tarning() {
-    let antal_kast = 0;
-    let mal = 1; //Första målet är att slå 1
+//Main game function
+function playDice() {
+    let nrThrows = 0;
 
-    while (mal <= 6) {
-        kast = Math.floor(Math.random() * 6) + 1;  // Slumpa ett kast mellan 1 och 6
-        antal_kast += 1;  // Öka antalet kast
+    //First goal to reach is 1
+    let goal = 1;
 
-        if (kast === mal) {  // Om kastet matchar målet
-            mal += 1  // Gå till nästa mål
+    while (goal <= 6) {
+        //Randomize a throw between 1 and 6
+        diceThrow = Math.floor(Math.random() * 6) + 1;
+        nrThrows += 1;
+
+        if (diceThrow === goal) {
+            goal += 1;
         }
     }
 
-    return antal_kast
+    return nrThrows;
 }
 
-console.log(`${spela_tarning()}x throws`);
+//Start the game
+console.log(`${playDice()}x throws of one dice to get a straight from 1 to 6`);
